@@ -87,38 +87,9 @@ public class TeamScreenFragment extends ListFragment {
                 @Override
                 public void failure(RetrofitError error) {
 
-                    Toast.makeText(getActivity(), "Failed to load teams", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Failed to load teams", Toast.LENGTH_LONG).show();
 
 
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                            getActivity());
-
-                    // set title
-                    alertDialogBuilder.setTitle("Error Connection");
-
-                    // set dialog message
-                    alertDialogBuilder
-                            .setMessage("Do you want to try again")
-                            .setCancelable(false)
-                            .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog,int id) {
-
-                                    getTeams();
-
-                                }
-                            })
-                            .setNegativeButton("No",new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog,int id) {
-                                    getActivity().finish();
-                                    dialog.cancel();
-                                }
-                            });
-
-                    // create alert dialog
-                    AlertDialog alertDialog = alertDialogBuilder.create();
-
-                    // show it
-                    alertDialog.show();
 
                 }
             });
